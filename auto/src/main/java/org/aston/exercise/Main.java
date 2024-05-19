@@ -1,7 +1,14 @@
 package org.aston.exercise;
 
+import org.aston.exercise.subFactory.FordFactory;
+import org.aston.exercise.subFactory.ToyotaFactory;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        CarsFactory factory;
+        factory = new ToyotaFactory();
+
+        factory.createCoupe();
+        factory.createSedan();
     }
 }

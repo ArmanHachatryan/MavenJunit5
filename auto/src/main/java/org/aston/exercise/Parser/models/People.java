@@ -1,4 +1,4 @@
-package org.aston.exercise.Parser;
+package org.aston.exercise.Parser.models;
 
 public class People {
     private int id;
@@ -36,5 +36,16 @@ public class People {
 
     public String getAvatar() {
         return avatar;
+    }
+
+    @Override
+    public String toString() {
+        return "People{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
     }
 }

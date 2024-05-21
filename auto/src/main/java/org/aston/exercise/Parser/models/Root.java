@@ -1,21 +1,23 @@
-package org.aston.exercise.Parser;
+package org.aston.exercise.Parser.models;
 
-import org.aston.exercise.Parser.People;
+import com.google.gson.annotations.SerializedName;
+import org.aston.exercise.Parser.models.People;
 
 import java.util.List;
 
 public class Root {
 
-    private int total;
+    private String name;
 
+    @SerializedName("people_list")
     private List<People> people;
 
-    public int getTotal() {
-        return total;
+    public String getName() {
+        return name;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<People> getPeople() {
@@ -29,7 +31,7 @@ public class Root {
     @Override
     public String toString() {
         return "Root{" +
-                "total='" + total + '\'' +
+                "name='" + name + '\'' +
                 ", people=" + people +
                 '}';
     }

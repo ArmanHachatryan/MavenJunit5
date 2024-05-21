@@ -15,8 +15,8 @@ public abstract class BaseSeleniumTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 //        ChromeOptions options = new ChromeOptions();
 //        options.setHeadless(true);
 //        options.addArguments("--headles");
@@ -28,6 +28,6 @@ public abstract class BaseSeleniumTest {
     @AfterAll
     public static void tearDown() {
         //driver.close();
-        driver.quit();
+//        driver.quit();
     }
 }

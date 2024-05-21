@@ -10,7 +10,6 @@ public class MainPage extends BaseSeleniumPage {
     private WebElement queueList;
 
     public MainPage() {
-        driver.get("");
         PageFactory.initElements(driver, this);
     }
 }

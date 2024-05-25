@@ -1,6 +1,7 @@
 package helpDesk;
 
 import core.BaseSeleniumPage;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,7 +19,10 @@ public class MainPage extends BaseSeleniumPage {
 
 
     public MainPage() {
-        driver.get("https://translate.google.com/");
+        Allure.step("Вход на страницу", ()-> {
+            driver.get("https://translate.google.com/");
+        });
+
         PageFactory.initElements(driver, this);
 
     }

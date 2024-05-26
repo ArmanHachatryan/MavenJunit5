@@ -21,8 +21,9 @@ public class GoogleTranslateTest extends BaseSeleniumTest {
     public void test1() throws InterruptedException {
         String text = "собака";
         String translatedText = "dog";
+        mainPage = new MainPage();
         Allure.step("ввод текста", () -> {
-            mainPage = new MainPage().translate(text);
+            mainPage.translate(text);
             Thread.sleep(2000);
         });
 
@@ -42,9 +43,7 @@ public class GoogleTranslateTest extends BaseSeleniumTest {
     public void test2() throws InterruptedException {
         String text = "собака";
         String translatedText = "dog";
-
         String act = new MainPage().translate(text).getTranslatedText();
-
         Thread.sleep(2000);
         Assertions.assertEquals(translatedText, act);
     }
@@ -58,9 +57,7 @@ public class GoogleTranslateTest extends BaseSeleniumTest {
     public void test3() throws InterruptedException {
         String text = "собака";
         String translatedText = "dog";
-
         String act = new MainPage().translate(text).getTranslatedText();
-
         Thread.sleep(2000);
         Assertions.assertEquals(translatedText, act);
     }

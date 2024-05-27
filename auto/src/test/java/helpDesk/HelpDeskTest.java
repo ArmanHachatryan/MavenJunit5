@@ -7,6 +7,6 @@ public class HelpDeskTest extends BaseSeleniumTest {
 
     @Test
     public void openBrowser() {
-
+        driver.get("");
     }
 }

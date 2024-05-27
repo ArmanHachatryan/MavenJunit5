@@ -12,7 +12,9 @@ public abstract class BaseSeleniumTest {
 
     @BeforeAll
     public static void setUp() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver",
+                "E:\\AQA\\MavenJunit5\\auto\\src\\test\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);

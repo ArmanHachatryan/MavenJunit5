@@ -1,38 +1,103 @@
 package org.aston.exercise;
 
+import lombok.SneakyThrows;
+import org.aston.exercise.infoService.Entity.BugReport;
+import org.aston.exercise.infoService.Entity.BugReportAttachment;
+
+import javax.persistence.EntityManager;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.*;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
-        String myString = "I love Java";
-        //System.out.println(method1(myString));
-
-        //System.out.println(method2(myString, myString.length()-1));
-
-//        int length = myString.length();
+//        EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+//        entityManager.getTransaction().begin();
 //
-//        char[] chars = new char[length];
+//        List<BugReport> bugReportList = entityManager.createQuery("SELECT b FROM bug_report AS b").getResultList();
+//        List<BugReportAttachment> bugReportAttachmentList = entityManager.createQuery("SELECT bug_id FROM public.bug_report_attachments", BugReportAttachment.class)
+//                .getResultList();
 //
-//        for (int i = length - 1, count = 0; i >= 0; i--) {
-//            chars[count++] = myString.charAt(i);
+//        bugReportList.forEach(System.out::println);
+//
+//        bugReportAttachmentList.forEach(System.out::println);
+//        entityManager.getTransaction().commit();
+//        entityManager.close();
+//
+//        JPAUtil.shutdown();
+
+//        int[] a = {4, 5 ,6 ,2 ,3};
+//
+//        for (int wall = a.length - 1; wall > 0; wall--)
+//        {
+//            int largest = 0;
+//            for (int i = 1; i <= wall; i++)
+//            {
+//                if (a[largest] < a[i])
+//                {
+//                    largest = i;
+//                }
+//            }
+//            exch(a, wall, largest);
 //        }
 //
-//        System.out.println(chars);
+//        for (var k : a) {
+//            System.out.println(k);
+//        }
 
-//        String BASE_PATH
+
+        System.out.println(substring("hello", "lo"));
+
     }
 
-    public static String method1(String str) {
-        return new StringBuilder(str).reverse().toString();
+    public static void exch(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 
-    public static String method2(String string, int index) {
-        if (index == 0) {
-            return string.charAt(0) + "";
+    public static int Search(char[] pat, char[] txt)
+    {
+
+
+        int M = pat.length;
+        int N = txt.length;
+
+        for (int i = 0; i <= N - M; i++)
+        {
+            int j;
+            for(j = 0; j < M; j++)
+            {
+                if (txt[i + j] != pat[j])
+                    break;
+            }
+            if (j == M) return i;
         }
-        char random = string.charAt(index);
-        return random + method2(string, index-1);
+
+        return -1;
     }
 
-    //buffer for manythread
-    //anagramms
-    //решить через стэк
+
+    public static int substring(String string, String substring) {
+
+        char[] stringCharArray = string.toCharArray();
+        char[] substringCharArray = substring.toCharArray();
+
+        int S = stringCharArray.length;
+        int B = substringCharArray.length;
+
+        for (int i = 0; i <= S - B; i++ ) {
+            int j;
+            for (j = 0; j < B; j++) {
+                if (stringCharArray[i + j] != substringCharArray[j])
+                    break;
+            }
+
+            if (j == B) return i;
+        }
+
+        return -1;
+    }
 }

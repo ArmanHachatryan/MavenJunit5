@@ -84,9 +84,6 @@ public class SendBugReportWithoutAttachmentTest {
 //                .addRequestSpecification(buildMultiParts(ContentType.MULTIPART, "message", "i founded bug", "userEmail", "test@mail.ru"))
 //                .build();
 //    }
-    private static ResponseSpecification rep() {
-        ResponseSpecification specification = RestAssured
-    }
 
     private static RequestSpecification buildMultiParts(String... keyValues) {
         if (keyValues.length % 2 != 0) {

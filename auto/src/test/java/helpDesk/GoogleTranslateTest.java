@@ -2,11 +2,13 @@ package helpDesk;
 
 import core.BaseSeleniumTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class GoogleTranslateTest extends BaseSeleniumTest {
 
     @Test
+    @Tag("Smoke")
     public void test1() throws InterruptedException {
         String text = "соба";
         String translatedText = "dog";

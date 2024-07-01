@@ -1,17 +1,29 @@
 package org.aston.exercise;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.aston.exercise.Strings.*;
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        //Перевернуть строку
-        String text = "Hello world";
+        System.out.println(isValidate("(())"));
+    }
 
-        System.out.println(flip(text));
-        System.out.println(flip2(text));
-        System.out.println(flip3(text));
+    public static boolean isValidate(String string) {
+        if (string.isEmpty() || string.equals(" ")) return false;
+
+        Stack<Character> stack = new Stack<>();
+        Map<Character, Character> map = new HashMap<>();
+        map.put(')', '(');
+        map.put(']', '[');
+        map.put('}', '{');
+        for (var ch : string.toCharArray()) {
+            if (map.containsValue(ch)) stack.push(ch);
+            else if (map.containsKey(ch)) {
+                if (stack.isEmpty() || stack.pop() != map.get(ch)) return false;
+            }
+        }
+
+        return true;
     }
 }

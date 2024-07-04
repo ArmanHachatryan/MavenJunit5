@@ -1,4 +1,4 @@
-package org.aston.exercise;
+package org.aston.exercise.Comparator;
 
 import java.util.Comparator;
 

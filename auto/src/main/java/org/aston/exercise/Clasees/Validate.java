@@ -44,7 +44,7 @@ public class Validate {
         return myStack.isEmpty();
     }
 
-    public static boolean isValidate3(String word) { //полурабочий вариант лучше не юзать
+    public static boolean isValidate3(String word) { //полурабочий вариант
         if (word == null) {
             return false;
         }

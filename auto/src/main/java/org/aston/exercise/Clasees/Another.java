@@ -33,7 +33,8 @@ public class Another {
     public static Map<String, Boolean> isValidate(String[] emailList) {
         Map<String, Boolean> hashMap = new HashMap<>();
         for (var email : emailList) {
-            if (email.matches("(\\w+[.-]?\\w+)+@\\w+\\.[a-z]{2,4}")) {  //"[A-Za-z0-9]"
+            if (email.matches("(\\w+[.-]?\\w+)+@\\w+\\.[a-z]{2,4}")) {
+    //("([A-Za-z0-9]{1,}[\\.-]{0,1}[A-Za-z0-9]{1,})+@([A-Za-z0-9]{1,}[\\.-]{0,1}[A-Za-z0-9]{1,})+[\\.]{1}[a-z]{2,4}")
                 hashMap.put(email, true);
             } else {
                 hashMap.put(email, false);
@@ -164,5 +165,26 @@ public class Another {
         }
 
         return counter;
+    }
+
+    public static int substring(String string, String substring) {
+
+        char[] stringCharArray = string.toCharArray();
+        char[] substringCharArray = substring.toCharArray();
+
+        int S = stringCharArray.length;
+        int B = substringCharArray.length;
+
+        for (int i = 0; i <= S - B; i++ ) {
+            int j;
+            for (j = 0; j < B; j++) {
+                if (stringCharArray[i + j] != substringCharArray[j])
+                    break;
+            }
+
+            if (j == B) return i;
+        }
+
+        return -1;
     }
 }

@@ -1,9 +1,6 @@
 package org.aston.exercise;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,6 +13,9 @@ public class myStreams {
 
     public static Integer getMax(Stream<Integer> stream) {
         return stream.max(Integer::compare).get();
+    }
+    public static Integer min(int[] nums) {
+        return Arrays.stream(nums).min().orElseThrow(RuntimeException::new);
     }
 
     public static Set<Integer> distinct2(int[] num) {
@@ -46,5 +46,25 @@ public class myStreams {
 
     public static List<Integer> chetNeChet(Stream<Integer> stream) {
         return stream.map(i -> i % 2 == 0 ? i * 100 : i - 100).collect(Collectors.toList());
+    }
+
+    public static List<Integer> reverse(Stream<Integer> stream) {
+        //return stream.sorted((a,b) -> new myComp().compare(a,b)).collect(Collectors.toList());
+        //return stream.sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        return stream.sorted(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                int answer;
+                if (o1 == o2) answer = 0;
+                else if (o1 > o2) answer = 1;
+                else answer = -1;
+                return -1 * answer;
+            }
+        }).collect(Collectors.toList());
+    }
+
+    private static void sum(int[] nums) {
+        //return Arrays.stream(nums).filter(x -> (x % 2 != 0)).sum();
+        Arrays.stream(nums).boxed().mapToInt(x -> x % 2 == 0 ? x + 100 : x - 100).forEach(System.out::println);
     }
 }

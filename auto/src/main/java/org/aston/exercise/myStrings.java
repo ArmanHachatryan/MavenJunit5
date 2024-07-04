@@ -1,26 +1,22 @@
 package org.aston.exercise;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class myStrings {
     public static String flipString(String text) {
         StringBuilder stringBuilder = new StringBuilder(text);
         stringBuilder.reverse();
         return stringBuilder.toString();
-
         //return new StringBuilder(text).reverse().toString();
     }
 
     public static String flipString2(String text) {
         final int N = text.length();
-
         char[] chars = new char[N];
-
         for (int i = N - 1, j = 0; i >= 0; i--, j++) {
-
             chars[j] = text.charAt(i);
         }
-
         return new String(chars, 0, N);
     }
 
@@ -34,20 +30,6 @@ public class myStrings {
         }
 
         return list.stream().reduce((x, y) -> x + y).get();
-    }
-
-    public static String flipString4() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        int length = input.length();
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (int i = length - 1; i >= 0; i--) {
-            stringBuilder.append(input.charAt(i));
-        }
-
-        return stringBuilder.toString();
     }
 
     public static void reverseInput() {
@@ -123,7 +105,7 @@ public class myStrings {
     }
 
     //сырой, и не совсем правильный
-    public static boolean isValid(String word) {
+    public static boolean isValid(String word) { //(())) false
         if (word == null) {
             return false;
         }
@@ -151,7 +133,7 @@ public class myStrings {
         return square == 0 && querly == 0 && round == 0;
     }
 
-    public static boolean isValidSwitch(String word) {
+    public static boolean isValidSwitch(String word) { //
         if (word == null) {
             return false;
         }
@@ -203,7 +185,7 @@ public class myStrings {
         return hashMap;
     }
 
-    public static boolean isValidate(String string) {
+    public static boolean isValidate(String string) { //{(}) true
         Stack<String> stack = new Stack<>();
         String[] array = string.split("");
         for (var symbol : array) {
@@ -245,35 +227,35 @@ public class myStrings {
         return myStack.isEmpty();
     }
 
-    public static String reverse(String string){
-        Stack<Character> stack = new Stack<>();
+//    public static String reverse(String string){
+//        Stack<Character> stack = new Stack<>();
+//
+//        for (char symbol : string.toCharArray()) {
+//            stack.push(symbol);
+//        }
+//
+//        char[] chars = new char[stack.size()];
+//        int i = 0;
+//        while (!stack.isEmpty()) {
+//            chars[i++] = stack.pop();
+//        }
+//
+//        return new String(chars);
+//    }
 
-        for (char symbol : string.toCharArray()) {
-            stack.push(symbol);
-        }
-
-        char[] chars = new char[stack.size()];
-        int i = 0;
-        while (!stack.isEmpty()) {
-            chars[i++] = stack.pop();
-        }
-
-        return new String(chars);
-    }
-
-    public static boolean isAnagram5(String real, String anagram) {
-        if (real.length() != anagram.length()) {
-            return false;
-        }
-        char[] realCharArray = real.toCharArray();
-        char[] anagramCharArray = anagram.toCharArray();
-        Arrays.sort(realCharArray);
-        Arrays.sort(anagramCharArray);
-        for (int i = 0; i < realCharArray.length; i++) {
-            if (realCharArray[i] != anagramCharArray[i]) return false;
-        }
-        return true;
-    }
+//    public static boolean isAnagram5(String real, String anagram) {
+//        if (real.length() != anagram.length()) {
+//            return false;
+//        }
+//        char[] realCharArray = real.toCharArray();
+//        char[] anagramCharArray = anagram.toCharArray();
+//        Arrays.sort(realCharArray);
+//        Arrays.sort(anagramCharArray);
+//        for (int i = 0; i < realCharArray.length; i++) {
+//            if (realCharArray[i] != anagramCharArray[i]) return false;
+//        }
+//        return true;
+//    }
 
     public static String convert(int n) {
         TreeMap<Integer, String> map = new TreeMap<>();
@@ -298,6 +280,52 @@ public class myStrings {
             n -= entry.getKey();
         }
         return sb.toString();
+    }
+
+    public static boolean isPalindrome(String string) {
+        char[] chars = string.toCharArray();
+
+        for (int i = 0, j = chars.length - 1; i <= j; i++, j--) {
+            if (chars[i] != chars[j]) return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isPalindrome2(String string) {
+        char[] chars = string.toCharArray();
+        int N = chars.length;
+        int i = 0;
+        int j = N - 1;
+        while (i <= j) {
+            if (chars[i++] != chars[j--]) return false;
+        }
+        return true;
+    }
+
+    public static boolean isPalindrome3(String string) {
+        int N = string.length();
+        return IntStream.range(0, N / 2).allMatch(i -> string.charAt(i) == string.charAt(N - i - 1));
+    }
+
+    //рекурсия
+    public static String reverse(String string, int index) {
+        if (index == 0) {
+            return String.valueOf(string.charAt(0));
+        }
+        char newString = string.charAt(index);
+        return newString + reverse(string, index - 1);
+    }
+
+    public static void printSomeTimes(int count, String string) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < count; i++) {
+            stringBuilder.append(string);
+            if (i < count - 1) {
+                stringBuilder.append("\n");
+            }
+        }
+        System.out.println(stringBuilder);
     }
 }
  

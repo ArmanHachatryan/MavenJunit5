@@ -25,6 +25,4 @@ public class Cycle {
         }
         return secondMap;
     }
-
-
 }

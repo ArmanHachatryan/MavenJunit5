@@ -99,6 +99,18 @@ public class Another {
         }).collect(Collectors.toList());
     }
 
+    public static void sort(int[] array) {
+        for (int wall = array.length - 1; wall > 0; wall--) {
+            int largest = 0;
+            for (int i = 1; i <= wall ; i++){
+                if (array[largest] < array[i]) largest = i;
+            }
+            int temp = array[wall];
+            array[wall] = array[largest];
+            array[largest] = temp;
+        }
+    }
+
     public static String deleteChar(String string, char del) {
         char[] chars = string.toCharArray();
         char[] org = new char[chars.length];

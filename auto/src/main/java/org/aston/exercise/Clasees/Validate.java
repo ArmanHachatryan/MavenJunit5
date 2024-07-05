@@ -75,6 +75,7 @@ public class Validate {
                 default:
                     System.out.println("Это не скобка");
             }
+            if (square < 0 && querly < 0 && round < 0) return false;
         }
 
         return round == 0 && querly == 0 && square == 0;

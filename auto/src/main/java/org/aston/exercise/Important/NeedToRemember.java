@@ -21,7 +21,7 @@ public class NeedToRemember {
 
     public static Map<String, Integer> reverseKeyValue(Map<Integer, String> firstMap) {
         Map<String, Integer> secondMap = new HashMap<>();
-        for (Map.Entry<Integer, String> set : firstMap.entrySet()){
+        for (Map.Entry<Integer, String> set : firstMap.entrySet()) {
             secondMap.put(set.getValue(), set.getKey());
         }
         return secondMap;
@@ -44,7 +44,7 @@ public class NeedToRemember {
 
         for (char ch : real.toCharArray()) {
             //map.put(ch, map.getOrDefault(ch, 0) + 1);
-            map.merge(ch, 1, Integer::sum);
+            map.merge(ch, 1, (a, b) -> a + b); //Integer::sum
             System.out.println(map);
         }
         for (char ch : anagram.toCharArray()) {

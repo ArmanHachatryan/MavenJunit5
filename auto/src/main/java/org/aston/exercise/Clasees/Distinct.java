@@ -6,12 +6,6 @@ import java.util.stream.Stream;
 
 public class Distinct {
 
-    public static Set<Integer> distinct(int[] numbers) {
-        Set<Integer> result = new HashSet<>();
-        for (int n : numbers) result.add(n);
-        return result;
-    }
-
     public static List<Integer> distinct2(int[] sortedList) {
         return Arrays.stream(sortedList).boxed().distinct().collect(Collectors.toList());
     }

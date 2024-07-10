@@ -31,6 +31,12 @@ public class Main {
                 "Иванов Иван Иванович, 2001 г.р.", "Сергеев Сергей Сергеевич, 1980 г.р.", "Петров Петр Петрович, 2018 г.р."
         };
 
+        try {
+            int result = 0 / 5;
+        } finally {
+
+        }
+
         sort(peoples);
         for (var key : peoples) {
             System.out.println(key);

@@ -92,7 +92,7 @@ public class Another {
             @Override
             public int compare(Integer o1, Integer o2) {
                 int answer;
-                if (o1 == o2) answer = 0;
+                if (Objects.equals(o1, o2)) answer = 0;
                 else if (o1 > o2) answer = 1;
                 else answer = -1;
                 return -1 * answer;

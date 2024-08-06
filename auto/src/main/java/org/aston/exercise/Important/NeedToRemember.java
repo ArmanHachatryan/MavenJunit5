@@ -51,7 +51,8 @@ public class NeedToRemember {
             if (!map.containsKey(ch)) {
                 return false;
             }
-            map.put(ch, map.get(ch) - 1);
+            //map.put(ch, map.get(ch) - 1);
+            map.merge(ch, 1, (a, b) -> a - b);
             if (map.get(ch) == 0) {
                 map.remove(ch);
             }
